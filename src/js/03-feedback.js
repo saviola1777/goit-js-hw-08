@@ -13,7 +13,7 @@ function onInput(event) {
   textEmailTextatera.email = refs.emailRef.value
   textEmailTextatera.textarea=refs.textareaRef.value
   localStorage.setItem("feedback-form-state", JSON.stringify(textEmailTextatera))
-  
+ 
  }
 function onSubmit(event) {
   event.preventDefault()

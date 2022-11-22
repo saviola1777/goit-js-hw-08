@@ -12,9 +12,7 @@ localStorage.setItem(LOCALSTORAGE_KEY, event.seconds);
 };
 
 const lastCurrentTime = localStorage.getItem(LOCALSTORAGE_KEY)
-
-
-if (lastCurrentTime !== null) {
+if (lastCurrentTime) {
 player.setCurrentTime(localStorage.getItem(LOCALSTORAGE_KEY));
 }
 
