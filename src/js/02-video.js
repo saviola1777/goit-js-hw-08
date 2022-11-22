@@ -3,13 +3,19 @@ import throttle from 'lodash.throttle';
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
-player.on('timeupdate', throttle(onTimeUpdate, 1000));
 const VIDEOPLAYER_CURRENT_TIME = "videoplayer-current-time";
+
+player.on('timeupdate', throttle(onTimeUpdate, 1000));
 
 function onTimeUpdate(event) {
 localStorage.setItem(VIDEOPLAYER_CURRENT_TIME, event.seconds);
 };
-player.setCurrentTime(localStorage.getItem(VIDEOPLAYER_CURRENT_TIME)) 
+
+if (localStorage.getItem(VIDEOPLAYER_CURRENT_TIME) !== null) {
+player.setCurrentTime(localStorage.getItem(VIDEOPLAYER_CURRENT_TIME));
+}
+
+
 
 // 1.import Player from '@vimeo/player'-імпортує Player назва зміною в яку імпортується from -звідки '@vimeo/player' - назва бібліотеки
 // 1.1API програвача Vimeo дозволяє вам взаємодіяти з вбудованим програвачем Vimeo та керувати ним. (npm install @vimeo/player)
